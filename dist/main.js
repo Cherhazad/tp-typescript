@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const library_service_1 = require("./library.service");
+let libraryService = new library_service_1.LibraryService();
+let book1 = { id: 1, title: "The Hobbit", author: "J.R.R. Tolkien", year: 1996, genre: "Fantasy" };
+let book2 = { id: 2, title: "The Lord of the Rings", author: "J.R.R. Tolkien", year: 1996, genre: "Fantasy" };
+libraryService.addbook(book1);
+console.log(libraryService.getbook());
+libraryService.addbook(book2);
+console.log(libraryService.getbook());
+libraryService.deletebook(book1);
+console.log(libraryService.getbook());

@@ -62,7 +62,7 @@ Les étapes:​
 - Supprimer un livre et vérifier la liste des livres dans la console​
 
 
-​## Compiler et exécuter le code
+## Compiler et exécuter le code
 
 Ajouter un script de compilation dans le package.json​
 Ouvrir le fichier package.json et ajouter les scripts suivants​

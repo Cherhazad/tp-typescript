@@ -1,17 +1,18 @@
 import { LibraryService} from "./library.service";
-import {Book} from "./book.model";
 
 let libraryService = new LibraryService();
-let book1: Book = {id: 1, title: "The Hobbit", author: "J.R.R. Tolkien", year: 1996, genre: "Fantasy"};
-let book2: Book = {id: 2, title: "The Lord of the Rings", author: "J.R.R. Tolkien", year: 1996, genre: "Fantasy"};
 
+libraryService.addBook("The Queen's Gambit", "Walter Davis", 1983, "Novel");
+console.log(libraryService.getBooks());
+libraryService.addBook("La Vérité sur l'Affaire Harry Quebert","Joël Dickens", 2012,  "Roman policier");
+console.log(libraryService.getBooks());
 
-libraryService.addbook(book1);
-console.log(libraryService.getbook());
-libraryService.addbook(book2);
-console.log(libraryService.getbook());
+// Supprimer un livre
+const books = libraryService.getBooks();
+if (books.length > 0) {
+    const bookIdToRemove = books[0].id;
+    libraryService.deleteBook(bookIdToRemove);
+}
 
-libraryService.deletebook(book1);
-console.log(libraryService.getbook());
-
-
+console.log('Livres après suppression :');
+console.log(libraryService.getBooks());

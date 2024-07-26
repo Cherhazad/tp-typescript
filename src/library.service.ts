@@ -1,18 +1,20 @@
 import {Book} from './book.model';
 
 export class LibraryService {
-    bookArray: Book[] = [];
+    private bookArray: Book[] = [];
+    private nextId = 1;
 
-    addbook(book: Book) {
-        this.bookArray.push(book);
+    addBook(title: string, author: string, year: number, genre: string) {
+        const newBook: Book = { id: this.nextId++, title, author, year, genre};
+        this.bookArray.push(newBook);
     }
 
-    getbook() {
+    getBooks() {
         return this.bookArray;
     }
 
-    deletebook(book: Book) {
-        this.bookArray.splice(this.bookArray.indexOf(book), 1);
+    deleteBook(id: number) {
+        this.bookArray = this.bookArray.filter(book => book.id !== id);
     }
 }
 

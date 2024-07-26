@@ -2,11 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const library_service_1 = require("./library.service");
 let libraryService = new library_service_1.LibraryService();
-let book1 = { id: 1, title: "The Hobbit", author: "J.R.R. Tolkien", year: 1996, genre: "Fantasy" };
-let book2 = { id: 2, title: "The Lord of the Rings", author: "J.R.R. Tolkien", year: 1996, genre: "Fantasy" };
-libraryService.addbook(book1);
-console.log(libraryService.getbook());
-libraryService.addbook(book2);
-console.log(libraryService.getbook());
-libraryService.deletebook(book1);
-console.log(libraryService.getbook());
+libraryService.addBook("The Queen's Gambit", "Walter Davis", 1983, "Novel");
+console.log(libraryService.getBooks());
+libraryService.addBook("La Vérité sur l'Affaire Harry Quebert", "Joël Dickens", 2012, "Roman policier");
+console.log(libraryService.getBooks());
+// Supprimer un livre
+const books = libraryService.getBooks();
+if (books.length > 0) {
+    const bookIdToRemove = books[0].id;
+    libraryService.deleteBook(bookIdToRemove);
+}
+console.log('Livres après suppression :');
+console.log(libraryService.getBooks());

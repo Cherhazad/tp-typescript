@@ -4,15 +4,17 @@ exports.LibraryService = void 0;
 class LibraryService {
     constructor() {
         this.bookArray = [];
+        this.nextId = 1;
     }
-    addbook(book) {
-        this.bookArray.push(book);
+    addBook(title, author, year, genre) {
+        const newBook = { id: this.nextId++, title, author, year, genre };
+        this.bookArray.push(newBook);
     }
-    getbook() {
+    getBooks() {
         return this.bookArray;
     }
-    deletebook(book) {
-        this.bookArray.splice(this.bookArray.indexOf(book), 1);
+    deleteBook(id) {
+        this.bookArray = this.bookArray.filter(book => book.id !== id);
     }
 }
 exports.LibraryService = LibraryService;
